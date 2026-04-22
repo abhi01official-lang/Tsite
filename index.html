@@ -1,303 +1,237 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Abhinav Classes – Free YouTube-based learning for Class 3rd to 9th students. Maths, Science, English, Hindi and more.">
-  <title>Abhinav Classes – Free Learning Hub</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-</head>
-<body>
+  <title>Abhinav Classes – Premium Learning Hub</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #06b6d4;
+      --bg: #0f172a;
+      --card: rgba(255,255,255,0.05);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --glass: rgba(255,255,255,0.08);
+      --blur: blur(20px);
+    }
 
-<!-- ════════════════════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════════════════════ -->
-<nav class="navbar" id="navbar">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="logo-icon">🎓</div>
-        Abhinav <span>Classes</span>
-      </a>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-      <ul class="nav-links">
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="#classes">Classes</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    body {
+      background: radial-gradient(circle at top, #1e293b, #020617);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-      <div class="nav-cta">
-        <a href="https://wa.me/919058146573" target="_blank" class="btn btn-primary">
-          💬 WhatsApp Us
-        </a>
-      </div>
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
 
-      <button class="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      backdrop-filter: var(--blur);
+      background: var(--glass);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 999;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 10px 30px rgba(79,70,229,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #6366f1, #22d3ee);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      color: var(--muted);
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* GLASS CARDS */
+    .card {
+      background: var(--card);
+      backdrop-filter: var(--blur);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    /* CLASSES GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .class-card {
+      text-align: center;
+      padding: 30px 10px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .class-card:hover {
+      background: linear-gradient(135deg, #6366f1, #22d3ee);
+    }
+
+    /* FEATURES */
+    .features {
+      margin-top: 100px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      padding: 25px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 100px;
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+  </style></head>
+<body><nav class="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">🎓 Abhinav Classes</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Classes</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <a href="https://wa.me/919058146573" class="btn btn-primary">WhatsApp</a>
+  </div>
+</nav><section class="hero container">
+  <h1>Learn Smarter, Faster & Free</h1>
+  <p>India’s modern free learning platform for Class 3–9 students.</p>
+  <div class="hero-buttons">
+    <a href="#" class="btn btn-primary">Start Learning</a>
+    <a href="#" class="btn">Explore</a>
+  </div>
+</section><section class="container">
+  <div class="grid">
+    <div class="card class-card">Class 3</div>
+    <div class="card class-card">Class 4</div>
+    <div class="card class-card">Class 5</div>
+    <div class="card class-card">Class 6</div>
+    <div class="card class-card">Class 7</div>
+    <div class="card class-card">Class 8</div>
+    <div class="card class-card">Class 9</div>
+  </div>
+</section><section class="container features">
+  <h2 style="text-align:center">Why Choose Us</h2>
+  <div class="features-grid">
+    <div class="card feature">
+      <h3>100% Free</h3>
+      <p>No cost learning forever.</p>
     </div>
-
-    <div class="mobile-nav">
-      <a href="#hero">🏠 Home</a>
-      <a href="#classes">📚 Classes</a>
-      <a href="#about">👨‍🏫 About</a>
-      <a href="#contact">📞 Contact</a>
-      <a href="https://wa.me/919058146573" target="_blank" style="color:#22c55e;font-weight:700;">💬 WhatsApp</a>
+    <div class="card feature">
+      <h3>Mobile Friendly</h3>
+      <p>Optimized for students.</p>
+    </div>
+    <div class="card feature">
+      <h3>Structured Learning</h3>
+      <p>Chapter-wise content.</p>
     </div>
   </div>
-</nav>
-
-<!-- ════════════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════════ -->
-<section class="hero" id="hero">
-  <div class="hero-blob hero-blob-1"></div>
-  <div class="hero-blob hero-blob-2"></div>
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          🎓 FREE Education for All
-        </div>
-        <h1>Learn Free,<br><em>Anytime,</em><br>Anywhere</h1>
-        <p class="hero-sub">Quality education for Class 3rd to 9th students. Watch curated YouTube lectures — subject-wise, chapter-wise. Completely free, forever.</p>
-        <div class="hero-buttons">
-          <a href="#classes" class="btn btn-primary">🚀 Start Learning</a>
-          <a href="#about" class="btn btn-outline">👨‍🏫 Meet the Teacher</a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="num">7</div><div class="lbl">Classes Covered</div></div>
-          <div class="hero-stat"><div class="num">5+</div><div class="lbl">Subjects</div></div>
-          <div class="hero-stat"><div class="num">100%</div><div class="lbl">Free Forever</div></div>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="hero-card-stack">
-          <div class="floating-card main">
-            <div class="big-icon">📺</div>
-            <div class="fc-title">Video Learning</div>
-            <div class="fc-sub">YouTube lectures organised by class &amp; subject</div>
-          </div>
-          <div class="floating-card pill pill-1">📚 7 Classes</div>
-          <div class="floating-card pill pill-2">✅ 100% Free</div>
-          <div class="floating-card pill pill-3">🎯 Chapter-wise</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════
-     CLASSES SECTION
-════════════════════════════════════════════════════ -->
-<section class="classes-section" id="classes">
-  <div class="container">
-    <div class="section-header fade-up">
-      <div class="section-label"><span class="dot"></span> Pick Your Class</div>
-      <h2 class="section-title">Choose Your Class &amp; Start Learning</h2>
-      <p class="section-sub">Click on your class to access subject-wise video lectures curated by Abhinav Sir.</p>
-    </div>
-
-    <div class="classes-grid">
-      <a href="class3.html" class="class-card fade-up">
-        <div class="card-emoji">📕</div>
-        <div class="card-num">3<sup style="font-size:1rem">rd</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-      <a href="class4.html" class="class-card fade-up">
-        <div class="card-emoji">📗</div>
-        <div class="card-num">4<sup style="font-size:1rem">th</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-      <a href="class5.html" class="class-card fade-up">
-        <div class="card-emoji">📘</div>
-        <div class="card-num">5<sup style="font-size:1rem">th</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-      <a href="class6.html" class="class-card fade-up">
-        <div class="card-emoji">📙</div>
-        <div class="card-num">6<sup style="font-size:1rem">th</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-      <a href="class7.html" class="class-card fade-up">
-        <div class="card-emoji">📒</div>
-        <div class="card-num">7<sup style="font-size:1rem">th</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-      <a href="class8.html" class="class-card fade-up">
-        <div class="card-emoji">📓</div>
-        <div class="card-num">8<sup style="font-size:1rem">th</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-      <a href="class9.html" class="class-card fade-up">
-        <div class="card-emoji">🏆</div>
-        <div class="card-num">9<sup style="font-size:1rem">th</sup></div>
-        <div class="card-label">Class</div>
-        <div class="card-arrow">→</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════
-     FEATURES
-════════════════════════════════════════════════════ -->
-<section class="features-section" id="features">
-  <div class="container">
-    <div class="section-header fade-up">
-      <div class="section-label"><span class="dot"></span> Why Abhinav Classes</div>
-      <h2 class="section-title">Everything You Need to Excel</h2>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card fade-up">
-        <div class="feature-icon fi-green">🆓</div>
-        <h3>Completely Free</h3>
-        <p>No fees, no subscriptions, no hidden charges. Every lecture is free for every student, forever.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon fi-blue">📺</div>
-        <h3>YouTube Video Learning</h3>
-        <p>All lectures are delivered via YouTube — reliable, fast, works on any device with no app needed.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon fi-amber">📚</div>
-        <h3>Subject-Wise Content</h3>
-        <p>Videos organised by class, subject and chapter so you never lose your place or waste time searching.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon fi-red">⏰</div>
-        <h3>Anytime Access</h3>
-        <p>Study at your own pace, morning or night, on phone or computer — the hub is always open.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon fi-purple">🧑‍🏫</div>
-        <h3>Expert Teaching</h3>
-        <p>Taught by Abhinav Narula Sir — passionate educator with years of experience guiding school students.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon fi-green">📱</div>
-        <h3>Mobile Friendly</h3>
-        <p>Perfectly optimised for smartphones — most students learn on phones, so we built for that first.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════
-     ABOUT
-════════════════════════════════════════════════════ -->
-<section class="about-section" id="about">
-  <div class="container">
-    <div class="about-inner">
-      <div class="about-text fade-up">
-        <div class="section-label"><span class="dot"></span> About the Teacher</div>
-        <h2>Abhinav Narula</h2>
-        <p>Abhinav Narula is a passionate educator dedicated to providing free, high-quality education to school students across India. His mission is simple: no child should be deprived of good learning because of financial barriers.</p>
-        <p>With years of experience teaching Class 3rd to 9th, he covers all core subjects — Maths, Science, English, Hindi, Social Science, EVS, Computer and more — with clarity, patience and enthusiasm.</p>
-        <p>Through this free hub, thousands of students can access structured, chapter-wise video lessons that are engaging, easy to follow and aligned with the school curriculum.</p>
-        <div class="about-chips">
-          <span class="chip">📍 Meerut Cantt, U.P.</span>
-          <span class="chip">📲 +91-9058146573</span>
-          <span class="chip">🎓 Class 3rd – 9th</span>
-        </div>
-      </div>
-
-      <div class="about-visual fade-up">
-        <div class="about-stat-card">
-          <div class="val">7</div>
-          <div class="lbl">Classes Covered</div>
-        </div>
-        <div class="about-stat-card">
-          <div class="val">5+</div>
-          <div class="lbl">Subjects</div>
-        </div>
-        <div class="about-stat-card">
-          <div class="val">100%</div>
-          <div class="lbl">Free Forever</div>
-        </div>
-        <div class="about-stat-card">
-          <div class="val">📺</div>
-          <div class="lbl">YouTube-Based</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════
-     CONTACT / CTA
-════════════════════════════════════════════════════ -->
-<section id="contact" style="background:var(--off-white); padding:80px 0;">
-  <div class="container" style="text-align:center;">
-    <div class="section-label" style="margin:0 auto 14px; display:inline-flex;"><span class="dot"></span> Get in Touch</div>
-    <h2 class="section-title fade-up">Have a Question? We're Here!</h2>
-    <p class="section-sub fade-up" style="margin: 0 auto 36px;">Reach out on WhatsApp for any queries about classes, subjects or the learning hub.</p>
-    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;" class="fade-up">
-      <a href="https://wa.me/919058146573" target="_blank" class="btn btn-wa">
-        💬 Chat on WhatsApp — +91-9058146573
-      </a>
-    </div>
-    <p style="margin-top:20px; color:var(--text-light); font-size:0.88rem;" class="fade-up">
-      📍 B15 Shivaji Colony, Red Quarter, Meerut Cantt – 250001
-    </p>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo">Abhinav <span>Classes</span></div>
-        <p>Free quality education for Class 3rd to 9th. No fees. No barriers. Just learning.</p>
-        <a href="https://wa.me/919058146573" target="_blank" class="btn btn-wa" style="font-size:0.85rem; padding:10px 22px;">💬 WhatsApp</a>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#classes">Classes</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Classes</h4>
-        <ul>
-          <li><a href="class3.html">Class 3rd</a></li>
-          <li><a href="class4.html">Class 4th</a></li>
-          <li><a href="class5.html">Class 5th</a></li>
-          <li><a href="class6.html">Class 6th</a></li>
-          <li><a href="class7.html">Class 7th</a></li>
-          <li><a href="class8.html">Class 8th</a></li>
-          <li><a href="class9.html">Class 9th</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Abhinav Classes. All rights reserved.</span>
-      <div class="social-links">
-        <a href="https://wa.me/919058146573" class="social-btn" target="_blank">💬</a>
-        <a href="#" class="social-btn">▶️</a>
-        <a href="#" class="social-btn">📘</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
+</section><footer>
+  © 2026 Abhinav Classes — Designed like a premium EdTech
+</footer></body>
 </html>
